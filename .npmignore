@@ -1,0 +1,9 @@
+node_modules
+*.log
+*.test.ts
+*.spec.ts
+test/
+__tests__/
+.vscode/
+.DS_Store
+tsconfig.json
