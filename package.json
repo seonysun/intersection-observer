@@ -1,11 +1,20 @@
 {
   "name": "@seony/intersection-observer",
   "version": "0.0.1",
-  "description": "react hook for IntersectionObserver",
-  "main": "index.ts",
-  "types": "index.d.ts",
+  "description": "React hook for IntersectionObserver",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "tsc",
+    "build": "tsup",
     "prepare": "npm run build"
   },
   "keywords": [
@@ -16,12 +25,12 @@
   ],
   "author": "seonysun",
   "license": "ISC",
+  "private": false,
+  "bugs": {
+    "url": "https://github.com/seonysun/seony-npm/issues"
+  },
+  "homepage": "https://github.com/seonysun/seony-npm#readme",
   "peerDependencies": {
     "react": "^18.0.0"
-  },
-  "devDependencies": {
-    "@types/react": "^18.2.18",
-    "@types/react-dom": "^18.2.7",
-    "typescript": "^5.9.3"
   }
 }
