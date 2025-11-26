@@ -32,5 +32,8 @@
   "homepage": "https://github.com/seonysun/seony-npm#readme",
   "peerDependencies": {
     "react": "^18.0.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.1"
   }
 }
