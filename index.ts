@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 
 interface Props {
-  hasNextPage: Boolean;
+  hasNextPage: boolean;
   fetchNextPage: () => void;
   threshold?: number;
 }
@@ -11,10 +11,13 @@ export const useIntersectionObserver = ({
   fetchNextPage,
   threshold = 0.5,
 }: Props) => {
-  const observerRef = useRef<HTMLElement | null>(null);
+  const observerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (!hasNextPage) return;
+
+    const target = observerRef.current;
+    if (!target) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -25,10 +28,13 @@ export const useIntersectionObserver = ({
       { threshold }
     );
 
-    if (observerRef.current) observer.observe(observerRef.current);
+    observer.observe(target);
 
-    return () => observer.disconnect();
-  }, [hasNextPage, fetchNextPage]);
+    return () => {
+      observer.unobserve(target);
+      observer.disconnect();
+    };
+  }, [hasNextPage, fetchNextPage, threshold]);
 
   return observerRef;
 };
