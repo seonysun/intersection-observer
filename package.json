@@ -27,9 +27,9 @@
   "license": "ISC",
   "private": false,
   "bugs": {
-    "url": "https://github.com/seonysun/seony-npm/issues"
+    "url": "https://github.com/seonysun/intersection-observer/issues"
   },
-  "homepage": "https://github.com/seonysun/seony-npm#readme",
+  "homepage": "https://github.com/seonysun/intersection-observer#readme",
   "peerDependencies": {
     "react": "^18.0.0"
   },
