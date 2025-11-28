@@ -2,12 +2,14 @@ import { useEffect, useRef } from "react";
 
 interface Props {
   hasNextPage: boolean;
+  isFetchingNextPage: boolean;
   fetchNextPage: () => void;
   threshold?: number;
 }
 
 export const useIntersectionObserver = ({
   hasNextPage,
+  isFetchingNextPage,
   fetchNextPage,
   threshold = 0.5,
 }: Props) => {
@@ -21,7 +23,8 @@ export const useIntersectionObserver = ({
 
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0].isIntersecting) {
+        const entry = entries[0];
+        if (entry.isIntersecting && !isFetchingNextPage) {
           fetchNextPage();
         }
       },
@@ -34,7 +37,7 @@ export const useIntersectionObserver = ({
       observer.unobserve(target);
       observer.disconnect();
     };
-  }, [hasNextPage, fetchNextPage, threshold]);
+  }, [hasNextPage, isFetchingNextPage, fetchNextPage, threshold]);
 
   return observerRef;
 };
