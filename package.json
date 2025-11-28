@@ -1,5 +1,5 @@
 {
-  "name": "@seony/intersection-observer",
+  "name": "@seonysun/intersection-observer",
   "version": "0.0.1",
   "description": "React hook for IntersectionObserver",
   "type": "module",
