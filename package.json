@@ -3,6 +3,7 @@
   "version": "0.0.2",
   "description": "React hook for IntersectionObserver",
   "type": "module",
+  "main": "./dist/index.js",
   "exports": {
     ".": {
       "import": "./dist/index.js",
