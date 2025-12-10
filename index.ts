@@ -1,11 +1,11 @@
 import { useEffect, useRef } from "react";
 
-interface Props {
+type Props = {
   hasNextPage: boolean;
   isFetchingNextPage: boolean;
   fetchNextPage: () => void;
   threshold?: number;
-}
+};
 
 export const useIntersectionObserver = ({
   hasNextPage,
